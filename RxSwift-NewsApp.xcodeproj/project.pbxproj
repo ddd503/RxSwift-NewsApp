@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		45D71BA12371B37E001ED778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D71BA02371B37E001ED778 /* AppDelegate.swift */; };
 		45D71BA32371B37E001ED778 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D71BA22371B37E001ED778 /* SceneDelegate.swift */; };
-		45D71BA52371B37E001ED778 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D71BA42371B37E001ED778 /* ViewController.swift */; };
 		45D71BA82371B37E001ED778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D71BA62371B37E001ED778 /* Main.storyboard */; };
 		45D71BAA2371B380001ED778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45D71BA92371B380001ED778 /* Assets.xcassets */; };
 		45D71BAD2371B380001ED778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D71BAB2371B380001ED778 /* LaunchScreen.storyboard */; };
+		45D71BB5237309CB001ED778 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D71BB4237309CB001ED778 /* NewsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45D71B9D2371B37E001ED778 /* RxSwift-NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RxSwift-NewsApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D71BA02371B37E001ED778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D71BA22371B37E001ED778 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		45D71BA42371B37E001ED778 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		45D71BA72371B37E001ED778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45D71BA92371B380001ED778 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45D71BAC2371B380001ED778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45D71BAE2371B380001ED778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45D71BB4237309CB001ED778 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +58,8 @@
 			children = (
 				45D71BA02371B37E001ED778 /* AppDelegate.swift */,
 				45D71BA22371B37E001ED778 /* SceneDelegate.swift */,
-				45D71BA42371B37E001ED778 /* ViewController.swift */,
 				45D71BA62371B37E001ED778 /* Main.storyboard */,
+				45D71BB4237309CB001ED778 /* NewsTableViewController.swift */,
 				45D71BA92371B380001ED778 /* Assets.xcassets */,
 				45D71BAB2371B380001ED778 /* LaunchScreen.storyboard */,
 				45D71BAE2371B380001ED778 /* Info.plist */,
@@ -138,9 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45D71BA52371B37E001ED778 /* ViewController.swift in Sources */,
 				45D71BA12371B37E001ED778 /* AppDelegate.swift in Sources */,
 				45D71BA32371B37E001ED778 /* SceneDelegate.swift in Sources */,
+				45D71BB5237309CB001ED778 /* NewsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
