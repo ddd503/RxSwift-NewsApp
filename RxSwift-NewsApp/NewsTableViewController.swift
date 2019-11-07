@@ -26,17 +26,16 @@ class NewsTableViewController: UITableViewController {
 
     func populateNews() {
         let url = URL(string: "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=\(apiKey)")!
-        Observable.just(url)
-            .flatMap { url -> Observable<Data> in
-                let request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 5.0)
-                return URLSession.shared.rx.data(request: request)
-        }.map { (data) -> [Article] in
-            return (try? JSONDecoder().decode(APIResponse.self, from: data).articles) ?? []
-        }.subscribe(onNext: { [weak self] articles in
-            // dataSource更新
-            self?.articles = articles
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+
+        // 非同期処理をRxで同期的に
+        // extension側でURLリクエスト結果を購読してここでハンドル
+        let resource = Resource<APIResponse>(url: url)
+        URLRequest.load(resource: resource).subscribe(onNext: { [weak self] result in
+            if let result = result {
+                self?.articles = result.articles
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
             }
         }).disposed(by: disposeBag)
     }
