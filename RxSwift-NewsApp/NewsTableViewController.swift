@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Keys
+
+let apiKey = RxSwiftNewsAppKeys().apiKey
 
 class NewsTableViewController: UITableViewController {
 

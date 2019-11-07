@@ -10,4 +10,11 @@ target 'RxSwift-NewsApp' do
  pod 'RxSwift', '~> 4.0'
  pod 'RxCocoa', '~> 4.0'
 
+plugin 'cocoapods-keys', {
+  :project => "Access-API-Sample-URLSession",
+  :keys => [
+    "apiKey",
+  ]}
+
+
 end
