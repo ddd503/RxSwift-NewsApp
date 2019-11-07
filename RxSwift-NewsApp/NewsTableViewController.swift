@@ -20,6 +20,7 @@ class NewsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         populateNews()
     }
 
@@ -35,8 +36,7 @@ class NewsTableViewController: UITableViewController {
             // dataSource更新
             self?.articles = articles
             DispatchQueue.main.async {
-                print(articles)
-//                self?.tableView.reloadData()
+                self?.tableView.reloadData()
             }
         }).disposed(by: disposeBag)
     }
@@ -44,10 +44,17 @@ class NewsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return articles.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ArticleCell.identifier, for: indexPath) as! ArticleCell
+        let article = articles[indexPath.row]
+        cell.setInfo(article: article)
+        return cell
     }
 }
