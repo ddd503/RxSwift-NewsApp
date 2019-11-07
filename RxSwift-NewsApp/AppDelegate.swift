@@ -14,7 +14,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        setupNavigationBarLayoutForiOS13(backgroundColor: .systemOrange, titleColor: .white, largeTitleColor: .white)
         return true
+    }
+
+    /// iOS13以降のナビゲーションバーのレイアウト調整（didFinishLaunchingWithOptionsで呼ぶ）
+    func setupNavigationBarLayoutForiOS13(backgroundColor: UIColor, titleColor: UIColor, largeTitleColor: UIColor) {
+        // iOS13専用
+        let coloredAppearance = UINavigationBarAppearance()
+        coloredAppearance.configureWithOpaqueBackground()
+        // 背景
+        coloredAppearance.backgroundColor = backgroundColor
+        // 通常時の属性
+        coloredAppearance.titleTextAttributes = [.foregroundColor: titleColor]
+        // largetitle時の属性
+        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: largeTitleColor]
+
+        // 通常のナビバーの見た目
+        UINavigationBar.appearance().standardAppearance = coloredAppearance
+        // largeTitle等でナビバーが伸びた時の見た目
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
     }
 
     // MARK: UISceneSession Lifecycle
