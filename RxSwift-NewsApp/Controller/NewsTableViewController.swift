@@ -11,8 +11,6 @@ import RxSwift
 import RxCocoa
 import Keys
 
-let apiKey = RxSwiftNewsAppKeys().apiKey
-
 class NewsTableViewController: UITableViewController {
 
     private var disposeBag = DisposeBag()
@@ -25,17 +23,17 @@ class NewsTableViewController: UITableViewController {
     }
 
     func populateNews() {
-        let url = URL(string: "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=\(apiKey)")!
+        guard let url = URL(string: "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=\(RxSwiftNewsAppKeys().apiKey)") else {
+            return
+        }
 
         // 非同期処理をRxで同期的に
         // extension側でURLリクエスト結果を購読してここでハンドル
         let resource = Resource<APIResponse>(url: url)
         URLRequest.load(resource: resource).subscribe(onNext: { [weak self] result in
-            if let result = result {
-                self?.articles = result.articles
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
+            self?.articles = result.articles
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
             }
         }).disposed(by: disposeBag)
     }
